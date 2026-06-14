@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3 Main Quests</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+            padding: 40px 20px;
+        }
+        .app-container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        p {
+            margin-bottom: 20px;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        
+        /* Timer Styles */
+        .timer-container {
+            background: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        #timer-display {
+            font-size: 40px;
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 10px;
+            font-family: monospace;
+        }
+        .timer-setup {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: #555;
+        }
+        .timer-setup input {
+            max-width: 70px;
+            padding: 6px;
+            text-align: center;
+            font-size: 16px;
+            flex: none;
+        }
+        .timer-controls {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+        .timer-btn {
+            background-color: #e74c3c;
+            flex: 1;
+        }
+        .timer-btn:hover:not(:disabled) {
+            background-color: #c0392b;
+        }
+
+        .input-area {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+        input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            outline: none;
+        }
+        input:focus {
+            border-color: #3498db;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            transition: background 0.2s;
+        }
+        button:hover:not(:disabled) {
+            background-color: #2980b9;
+        }
+        button:disabled {
+            background-color: #bdc3c7;
+            cursor: not-allowed;
+        }
+        ul {
+            list-style: none;
+            text-align: left;
+        }
+        li {
+            background: #fdfdfd;
+            border: 1px solid #eee;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.2s;
+            user-select: none;
+        }
+        li:hover {
+            background: #f1f2f6;
+        }
+        li.completed {
+            text-decoration: line-through;
+            color: #95a5a6;
+            background: #ecf0f1;
+        }
+
+        #congrats-msg {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #d4edda;
+            color: #155724;
+            border-radius: 6px;
+            font-weight: bold;
+            display: none;
+        }
+
+        .quote-container {
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        .quote-btn {
+            background-color: #9b59b6;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        .quote-btn:hover:not(:disabled) {
+            background-color: #8e44ad;
+        }
+        #quote-display {
+            font-style: italic;
+            color: #555;
+            min-height: 45px;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <h1>The Three Main Quests:</h1>
+        <p>Focus on what matters, and insert the most important 3 tasks in your day:</p>
+
+        <div class="timer-container">
+            <div id="timer-display">00:00</div>
+            
+            <div class="timer-setup">
+                <label for="timer-minutes">Set time:</label>
+                <input type="number" id="timer-minutes" min="0" max="180" value="0">
+                <span>minutes</span>
+            </div>
+
+            <div class="timer-controls">
+                <button id="start-pause-btn" class="timer-btn">Start</button>
+                <button id="reset-btn" class="timer-btn">Reset</button>
+            </div>
+        </div>
+
+        <div class="input-area">
+            <input type="text" id="quest-input" placeholder="What is your Quest?">
+            <button id="add-btn">Add</button>
+        </div>
+        <ul id="quest-list"></ul>
+
+        <div id="congrats-msg">
+            🎉 Congratulations! You made it for today. Take a big break! 🎉
+        </div>
+
+        <div class="quote-container">
+            <button id="quote-btn" class="quote-btn">I don't feel like doing it...</button>
+            <p id="quote-display"></p>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
