@@ -14,3 +14,6 @@ When you finish all your tasks, the program congratulates you and advises you to
 I made this project for myself and for people who want to do only three tasks per day, which is the most productive choice for them.
 And, made it to increase my motivation by reading those couple of quotes when I feel bored or devastated.
 And, I added a timer to make my life easier and not open many tabs on the screen while doing my tasks.
+
+### Important Note:
+I didn't make too much commits because I still wasn't experienced enough to know this method in VS code and Github.
